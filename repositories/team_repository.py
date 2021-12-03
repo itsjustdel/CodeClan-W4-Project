@@ -2,6 +2,8 @@ from psycopg2.extensions import SQL_IN
 from db.run_sql import run_sql
 from models.team import Team
 
+import repositories.league_repository as league_repository
+
 # method to save team to the db
 def save(team):
     # sql statement
@@ -48,4 +50,17 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
+    # custom
+def teams(league):
+    teams = []    
+    sql = "SELECT * FROM teams WHERE league_id = %s"    
+    values = [league.id]
+    results = run_sql(sql, values)
 
+    for row in results:
+        # league object from id
+        league = league_repository.select(league.id)
+        team = Team(row['name'],league)
+        teams.append(team)
+
+    return teams

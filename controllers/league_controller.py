@@ -11,5 +11,6 @@ def leagues():
 
 @leagues_blueprint.route("/leagues/<id>")
 def show(id):    
-    teams = team_repository.select_all()
-    return render_template("leagues/show.html", teams=teams)
+    league = league_repository.select(id)
+    teams = team_repository.teams(league)
+    return render_template("leagues/show.html",league=league, teams=teams)
