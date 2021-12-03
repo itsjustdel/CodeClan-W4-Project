@@ -3,10 +3,11 @@
 {% block content %}
 <h1>All Games</h1>
 
+<!-- not dry, this block used in index and show -->
 <ul>
   {% for game in games %}
   <li>
-    <p>{{ game.home_team.name }} vs {{game.away_team.name}} </p>
+    <p><a href="/teams/{{game.home_team.id}}">{{ game.home_team.name }}</a> vs <a href="/teams/{{game.away_team.id}}">{{game.away_team.name}}</a> </p>
   </li>
   {% endfor %}
 </ul>

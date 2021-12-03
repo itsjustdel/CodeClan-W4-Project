@@ -6,7 +6,9 @@
 <h3>League Table</h3>
     <ul>
         {% for team in teams %}
-            <li>{{team.name}}</li>
+            <li>
+            <a href="/teams/{{team.id}}"> {{team.name}}</a>   
+            </li>
         {% endfor %}    
     </ul>
 

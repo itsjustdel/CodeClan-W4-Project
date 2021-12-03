@@ -2,8 +2,9 @@
 
 {% block content %}
 <h1> {{team.name}} </h1>
-<h2>League : {{league.name}}</h2>
+<h2>League : <a href="/leagues/{{league.id}}">{{league.name}}</a></h2>
 
+<a href="/games/{{team.id}}">Show Team's Games</a>
 <!-- <h3>Monsters</h3> -->
 <!-- <ul>
     {% for monster in team.monsters %}

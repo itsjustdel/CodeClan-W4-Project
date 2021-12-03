@@ -12,7 +12,7 @@ def teams():
 
 @teams_blueprint.route("/teams/<id>")
 def show(id):    
-    team = team_repository.select(id)    
+    team = team_repository.select(id)
     # find which league the team is in
     league = league_repository.select(team.league.id)
     # monsters to go here

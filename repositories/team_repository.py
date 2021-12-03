@@ -39,7 +39,7 @@ def select(id):
     if result is not None:
         # get the league object
         league = league_repository.select(result['league_id']) 
-        team = Team(result['name'], league ,result['id'])
+        team = Team(result['name'], league , result['id'])
     
     return team
 
@@ -52,7 +52,7 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
-    # custom
+    
 def teams(league):
     teams = []    
     sql = "SELECT * FROM teams WHERE league_id = %s"    
@@ -62,7 +62,7 @@ def teams(league):
     for row in results:
         # league object from id
         league = league_repository.select(league.id)
-        team = Team(row['name'],league)
+        team = Team(row['name'],league, row['id'])
         teams.append(team)
 
     return teams
