@@ -1,5 +1,6 @@
 from db.run_sql import run_sql
 from models.game import Game
+import repositories.team_repository as teams_repository
 
 # method to save game to db
 def save(game):
@@ -21,7 +22,12 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        game = Game(row['home_team_id'],row['away_team_id'],row['draw'],row['winning_team_id'])
+        # get teams from id
+        home_team = teams_repository.select(row['home_team_id'])
+        away_team = teams_repository.select(row['away_team_id'])
+        winning_team = teams_repository.select(row['winning_team_id'])
+        # now we have team objects, we can make a game class with these 
+        game = Game(home_team, away_team, row['draw'], winning_team)
         games.append(game)
 
     return games
