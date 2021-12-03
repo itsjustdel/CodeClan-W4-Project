@@ -1,5 +1,5 @@
 class Monster:
-    def __init__(self, name, limbs, team, id = None):
+    def __init__(self, name, limbs, team = None, id = None):
         self.name = name
         self.limbs = limbs
         self.team = team
