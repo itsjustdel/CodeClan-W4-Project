@@ -37,7 +37,9 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        team = Team(result['name'],result['league_id'],result['id'])
+        # get the league object
+        league = league_repository.select(result['league_id']) 
+        team = Team(result['name'], league ,result['id'])
     
     return team
 
