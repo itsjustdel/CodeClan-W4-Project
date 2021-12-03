@@ -16,10 +16,10 @@ CREATE TABLE teams(
 
 CREATE TABLE games(
     id SERIAL PRIMARY KEY,
-    draw BOOLEAN,
-    winning_team_id INT REFERENCES teams(id) ON DELETE CASCADE NULL,
     home_team_id INT REFERENCES teams(id) ON DELETE CASCADE,
-    away_team_id INT REFERENCES teams(id) ON DELETE CASCADE
+    away_team_id INT REFERENCES teams(id) ON DELETE CASCADE,
+    draw BOOLEAN,
+    winning_team_id INT REFERENCES teams(id) ON DELETE CASCADE NULL    
 );
 
 CREATE TABLE monsters(
