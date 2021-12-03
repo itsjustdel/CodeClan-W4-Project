@@ -1,10 +1,15 @@
 from flask import Flask, render_template, request, redirect, Blueprint
+import repositories.league_repository as league_repository
 import repositories.team_repository as team_repository
 
-league_blueprint = Blueprint("league",__name__)
+leagues_blueprint = Blueprint("leagues",__name__)
 
-@league_blueprint.route("/league")
-def league():
-    # show all teams when we get to league page
+@leagues_blueprint.route("/leagues")
+def leagues():    
+    leagues = league_repository.select_all()
+    return render_template("leagues/index.html", leagues=leagues)
+
+@leagues_blueprint.route("/leagues/<id>")
+def show(id):    
     teams = team_repository.select_all()
-    return render_template("league/index.html", teams=teams)
+    return render_template("leagues/show.html", teams=teams)
