@@ -24,7 +24,7 @@ def select_all():
 
     for row in results:
         team = Team(row['name'],row['league_id'],row['id'])
-        teams.append(teams)
+        teams.append(team)
 
     return teams
 

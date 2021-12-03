@@ -12,6 +12,11 @@ import repositories.monster_repository as monster_repository
 import repositories.team_repository as team_repository
 import repositories.game_repository as game_repository
 
+league_repository.delete_all()
+monster_repository.delete_all()
+team_repository.delete_all()
+game_repository.delete_all()
+
 league = League("Top League")
 team_1 = Team("Roy and the Ravers", league)
 team_2 = Team("Ltnt Tarzan and the Mongrels", league)
