@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1><a href="/leagues/{{league.id}}">{{league.name}}</a></h1>
+
+<h3>Games</h3>
+<!-- not dry, this block used in index and show -->
+<ul>
+    {% for game in games %}
+    <li>
+      <p><a href="/teams/{{game.home_team.id}}">{{ game.home_team.name }}</a> vs <a href="/teams/{{game.away_team.id}}">{{game.away_team.name}}</a> </p>
+    </li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

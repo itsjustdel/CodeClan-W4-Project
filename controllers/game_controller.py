@@ -16,11 +16,11 @@ def show_team_games(id):
     # show all games for team
     team = team_repository.select(id)
     games = game_repository.games_for_team(team)
-    return render_template("games/show.html", team=team, games=games)
+    return render_template("games/show_team.html", team=team, games=games)
 
 @games_blueprint.route("/games/leagues/<league_id>")
 def show_league_games(league_id):
     # show all games for for league
     league= league_repository.select(league_id)
     games = game_repository.games_for_league(league)
-    return render_template("games/show.html", team=league, games=games)
+    return render_template("games/show_league.html", league=league, games=games)

@@ -20,7 +20,6 @@ def show(id):
     # monsters to go here
     return render_template("teams/show.html",team=team, league=league)
 
-
 @teams_blueprint.route("/teams/<league_id>/new")
 def new_team_form(league_id):
     league = league_repository.select(league_id)
@@ -35,3 +34,10 @@ def new_team(league_id):
     # show league we added team to
     teams = team_repository.teams(league)
     return render_template("leagues/show.html",league=league, teams=teams)
+
+@teams_blueprint.route("/teams/<id>/delete")
+def delete_team(id):
+    # grab what league team was in, we will redirect back there after deletion
+    league = league_repository.select(id)
+    team_repository.delete(id)
+    return redirect("/leagues/" + str(id)) #url_for TODO
