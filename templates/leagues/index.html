@@ -10,10 +10,14 @@
 <ul>
   {% for league in leagues %}
   <li>
-    <p><a href="/leagues/{{league.id}}">{{ league.name }}</a> </p>
+    <p><a href="/leagues/{{league.id}}">{{ league.name }}</a> 
+    
+    </p>
   </li>
   {% endfor %}
 </ul>
+
+<a href="/leagues/new">Add New League</a>
 
 
 {% endblock %}
