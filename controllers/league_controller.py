@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, Blueprint
 from models.league import League
+from models.team import Team
 import repositories.league_repository as league_repository
 import repositories.team_repository as team_repository
 

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1> {{league.name}} </h1>
+<h1> <a href="/leagues/{{league.id}}">{{league.name}}</a> </h1>
 
 <h3>League Table</h3>
     <ul>
@@ -12,6 +12,7 @@
         {% endfor %}    
     </ul>
 
-    <a href="/leagues/new"></a>
+    <a href="/teams/{{league.id}}/new">Add Team</a>
+    <a href="/games/leagues//{{league.id}}">All Games in this league</a>
 
 {% endblock %}

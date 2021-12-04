@@ -1,6 +1,7 @@
 from db.run_sql import run_sql
 from models.game import Game
 import repositories.team_repository as teams_repository
+import repositories.league_repository as leagues_repository
 
 # method to save game to db
 def save(game):
@@ -26,8 +27,9 @@ def select_all():
         home_team = teams_repository.select(row['home_team_id'])
         away_team = teams_repository.select(row['away_team_id'])
         winning_team = teams_repository.select(row['winning_team_id'])
+        league = leagues_repository.select(row['league_id'])
         # now we have team objects, we can make a game class with these 
-        game = Game(home_team, away_team, row['draw'], winning_team)
+        game = Game(league, home_team, away_team, row['draw'], winning_team)
         games.append(game)
 
     return games
@@ -39,7 +41,7 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        game = Game(result['home_team_id'],result['away_team_id'],result['draw'],result['winning_team_id'])
+        game = Game(result['league_id'], result['home_team_id'],result['away_team_id'],result['draw'],result['winning_team_id'])
     
     return game
 
@@ -52,7 +54,7 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
-def games(team):
+def games_for_team(team):
     games = []    
     sql = "SELECT * FROM games WHERE home_team_id = %s OR away_team_id = %s"    
     values = [team.id, team.id]
@@ -63,8 +65,13 @@ def games(team):
         home_team = teams_repository.select(row['home_team_id'])
         away_team = teams_repository.select(row['away_team_id'])
         winning_team = teams_repository.select(row['winning_team_id'])
+        league = leagues_repository.select(team.id)
         # now we have team objects, we can make a game class with these 
-        game = Game(home_team, away_team, row['draw'], winning_team)
+        game = Game(league, home_team, away_team, row['draw'], winning_team)
         games.append(game)
 
     return games
+
+def games_for_league(league):
+    games = []
+    sqp = "SELECT * FROM games WHERE league_id"
