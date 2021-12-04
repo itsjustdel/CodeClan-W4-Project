@@ -52,6 +52,12 @@ def delete(id):
     values = [id]
     run_sql(sql, values)
 
+def update(team):        
+    sql = "UPDATE teams SET name = (%s) WHERE id = %s"
+    # replace placeholders with these values
+    values = [team.name, team.id]
+    # send to db
+    run_sql(sql, values)
     
 def teams(league):
     teams = []    

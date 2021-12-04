@@ -25,6 +25,25 @@ def new_team_form(league_id):
     league = league_repository.select(league_id)
     return render_template("/teams/new.html", league=league)
 
+# EDIT
+@teams_blueprint.route("/teams/<team_id>/edit")
+def edit_team_form(team_id):
+    team = team_repository.select(team_id)
+    print(team.name)
+    return render_template("/teams/edit.html", team=team)
+
+# UPDATE
+@teams_blueprint.route("/teams/<team_id>/edit", methods=['POST'])
+def update_team(team_id):
+    team = team_repository.select(team_id)
+    # alter
+    team.name = request.form['team_name']
+    # update
+    team_repository.update(team)
+    # return to team page
+    return show(team_id)
+
+# NEW
 @teams_blueprint.route("/teams/<league_id>/new", methods=['POST'])
 def new_team(league_id):        
     team_name = request.form['team_name']
@@ -35,9 +54,9 @@ def new_team(league_id):
     teams = team_repository.teams(league)
     return render_template("leagues/show.html",league=league, teams=teams)
 
-@teams_blueprint.route("/teams/<id>/delete")
+@teams_blueprint.route("/teams/<id>/delete", methods=['POST'])
 def delete_team(id):
     # grab what league team was in, we will redirect back there after deletion
     league = league_repository.select(id)
     team_repository.delete(id)
-    return redirect("/leagues/" + str(id)) #url_for TODO
+    return redirect("/leagues/" + str(league.id)) #url_for TODO

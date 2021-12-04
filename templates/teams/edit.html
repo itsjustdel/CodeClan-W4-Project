@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Edit Team</h1>
+
+<form action="/teams/{{team.id}}/edit" method="post">    
+    <label for="team_name">Team name:</label>
+    <input type="text" id="team_name" name="team_name" value="{{team.name}}">
+    <input type="submit" value="Make Changes">
+</form>
+
+{% endblock %}
