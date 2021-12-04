@@ -3,9 +3,21 @@
 {% block content %}
 <h1>Add New Game</h1>
 
-<form action="/leagues/new" method="post">    
-    
-    <input type="submit" value="Play!">
+<form action="/leagues/{{league.id}}/games/new" method="post">
+    <label for="home_team">Select Home Team:</label>
+    <select name="home_team_id" id="home_team">
+    {% for team in teams %}
+    <option value="{{ team.id }}">{{ team.name }}</option>
+    {% endfor %}
+    </select>
+
+    <label for="away_team">Select Away Team:</label>
+    <select name="away_team_id" id="away_team">
+    {% for team in teams %}
+    <option value="{{ team.id }}">{{ team.name }}</option>
+    {% endfor %}
+    </select>
+    <input type='submit' value="Play!">
 </form>
 
 {% endblock %}

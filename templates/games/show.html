@@ -9,6 +9,7 @@
     {% for game in games %}
     <li>
       <p><a href="/teams/{{game.home_team.id}}">{{ game.home_team.name }}</a> vs <a href="/teams/{{game.away_team.id}}">{{game.away_team.name}}</a> </p>
+      <p><a href="/teams/{{game.winning_team.id}}">{{ game.winning_team.name}} Won</a></p>
     </li>
     {% endfor %}
   </ul>
