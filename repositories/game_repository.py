@@ -74,4 +74,16 @@ def games_for_team(team):
 
 def games_for_league(league):
     games = []
-    sqp = "SELECT * FROM games WHERE league_id"
+    sql = "SELECT * FROM games WHERE league_id = %s"
+    values = [league.id]
+    results = run_sql(sql,values)
+
+    for row in results:
+        home_team = teams_repository.select(row['home_team_id'])
+        away_team = teams_repository.select(row['away_team_id'])
+        winning_team = teams_repository.select(row['winning_team_id'])        
+        # now we have team objects, we can make a game class with these 
+        game = Game(league, home_team, away_team, row['draw'], winning_team)
+        games.append(game)
+
+    return games
