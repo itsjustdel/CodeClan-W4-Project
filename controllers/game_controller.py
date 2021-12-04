@@ -11,16 +11,24 @@ def games():
     games = game_repository.select_all()    
     return render_template("games/index.html", games = games)
 
-@games_blueprint.route("/games/teams/<id>")
+@games_blueprint.route("/teams/<id>/games")
 def show_team_games(id):    
     # show all games for team
     team = team_repository.select(id)
     games = game_repository.games_for_team(team)
-    return render_template("games/show_team.html", team=team, games=games)
+    route = "teams"
+    return render_template("games/show.html",route=route, object=team, games=games)
 
-@games_blueprint.route("/games/leagues/<league_id>")
+@games_blueprint.route("/leagues/<league_id>/games")
 def show_league_games(league_id):
     # show all games for for league
     league= league_repository.select(league_id)
     games = game_repository.games_for_league(league)
-    return render_template("games/show_league.html", league=league, games=games)
+    route = "leagues"
+    return render_template("games/show.html",route=route, object=league, games=games)
+
+# @games_blueprint.route("leagues/<league_id>/games/new")
+# def new_game():
+#     # to create a new game we need
+#     # a list of all teams in the league
+#     teams = 

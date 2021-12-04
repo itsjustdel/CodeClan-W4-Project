@@ -20,7 +20,8 @@ def show(id):
     # monsters to go here
     return render_template("teams/show.html",team=team, league=league)
 
-@teams_blueprint.route("/teams/<league_id>/new")
+
+@teams_blueprint.route("/<league_id>/teams/new")
 def new_team_form(league_id):
     league = league_repository.select(league_id)
     return render_template("/teams/new.html", league=league)
@@ -29,7 +30,6 @@ def new_team_form(league_id):
 @teams_blueprint.route("/teams/<team_id>/edit")
 def edit_team_form(team_id):
     team = team_repository.select(team_id)
-    print(team.name)
     return render_template("/teams/edit.html", team=team)
 
 # UPDATE
@@ -44,7 +44,7 @@ def update_team(team_id):
     return show(team_id)
 
 # NEW
-@teams_blueprint.route("/teams/<league_id>/new", methods=['POST'])
+@teams_blueprint.route("/<league_id>/teams/new", methods=['POST'])
 def new_team(league_id):        
     team_name = request.form['team_name']
     league = league_repository.select(league_id)
@@ -54,6 +54,7 @@ def new_team(league_id):
     teams = team_repository.teams(league)
     return render_template("leagues/show.html",league=league, teams=teams)
 
+# DELETE
 @teams_blueprint.route("/teams/<id>/delete", methods=['POST'])
 def delete_team(id):
     # get league id from the team we about to delete so we can redirect back to league

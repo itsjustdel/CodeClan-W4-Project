@@ -2,6 +2,10 @@
 
 {% block content %}
 <h1> <a href="/leagues/{{league.id}}">{{league.name}}</a> </h1>
+<a href="/leagues/{{league.id}}/edit">Edit League</a>
+<form action="/leagues/{{league.id}}/delete" method="POST">
+    <input type="submit" value="delete"/>
+  </form>
 
 <h3>League Table</h3>
     <ul>
@@ -12,7 +16,11 @@
         {% endfor %}    
     </ul>
 
+    <a href="/games/leagues/{{league.id}}">Play Game</a>
     <a href="/teams/{{league.id}}/new">Add Team</a>
-    <a href="/games/leagues//{{league.id}}">All Games in this league</a>
+    <a href="/leagues/{{league.id}}/games">View All Games in this league</a>
+    
+
+
 
 {% endblock %}

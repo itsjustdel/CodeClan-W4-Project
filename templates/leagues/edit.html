@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add New League</h1>
+
+<form action="/leagues/{{league.id}}/edit" method="post">    
+    <label for="league_name">Enter league name:</label>
+    <input type="text" id="league_name" name="league_name" value="{{league.name}}">
+    <input type="submit" value="Make Changes!">
+</form>
+
+{% endblock %}
