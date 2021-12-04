@@ -56,7 +56,7 @@ def new_team(league_id):
 
 @teams_blueprint.route("/teams/<id>/delete", methods=['POST'])
 def delete_team(id):
-    # grab what league team was in, we will redirect back there after deletion
-    league = league_repository.select(id)
+    # get league id from the team we about to delete so we can redirect back to league
+    team = team_repository.select(id)
     team_repository.delete(id)
-    return redirect("/leagues/" + str(league.id)) #url_for TODO
+    return redirect("/leagues/" + str(team.league.id)) #url_for TODO
