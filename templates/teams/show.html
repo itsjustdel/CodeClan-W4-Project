@@ -11,12 +11,11 @@
     <input type="submit" value="delete"/>
   </form>
 <!-- <a href="/teams/{{team.id}}/delete">Delete Team</a> -->
-<!-- <h3>Monsters</h3> -->
-<!-- <ul>
-    {% for monster in team.monsters %}
-    <li>{{monster.name}}</li>    
-    {% endfor %}
-    
-</ul> -->
+<h3>Monsters</h3>
+<ul>
+    {% for monster in monsters %}
+    <li><a href="/monsters/{{monster.id}}">{{monster.name}}</a></li>    
+    {% endfor %}    
+</ul>
 
 {% endblock %}

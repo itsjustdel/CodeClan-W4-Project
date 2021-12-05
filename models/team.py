@@ -3,3 +3,6 @@ class Team:
         self.name = name
         self.league = league
         self.id = id
+
+    
+

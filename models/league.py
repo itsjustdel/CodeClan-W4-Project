@@ -1,5 +1,3 @@
-from sys import warnoptions
-
 class League:
     def __init__(self, name, id = None):
         self.name = name

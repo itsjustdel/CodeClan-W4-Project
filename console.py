@@ -1,11 +1,10 @@
 import pdb
 
-# import model classes to organise data
+# # import model classes to organise data
 from models.league import League
-from models.monster import Monster
+# from models.monster import Monster
 from models.team import Team
 from models.game import Game
-
 # import repositories to send sql to db
 import repositories.league_repository as league_repository
 import repositories.monster_repository as monster_repository
@@ -19,14 +18,20 @@ game_repository.delete_all()
 
 league = League("Top League")
 
+league_repository.save(league)
+
 team_1 = Team("Roy and the Ravers", league)
 team_2 = Team("Ltnt Tarzan and the Mongrels", league)
 team_3 = Team("Crepescule", league)
 
-# ['Blizzard', 'Hail', 'Heavy rain', 'Ice Storm', 'Lightning', 'Windy'] - weathers
-monster_1 = Monster("Jimbo", 3, "Hail", team_1)
-monster_2 = Monster("Keano", 6, "Windy", team_2)
-monster_3 = Monster("Bimbo", 9, "Blizzard", team_3)
+# save first so we have id
+team_repository.save(team_1)
+team_repository.save(team_2)
+team_repository.save(team_3)
+
+monster_repository.add_monsters(team_1)
+monster_repository.add_monsters(team_2)
+monster_repository.add_monsters(team_3)
 
 game_1 = Game(league, team_1, team_2)
 game_2 = Game(league, team_2, team_3)
@@ -34,16 +39,6 @@ game_3 = Game(league, team_1, team_3)
 game_1.play()
 game_2.play()
 game_3.play()
-
-league_repository.save(league)
-
-team_repository.save(team_1)
-team_repository.save(team_2)
-team_repository.save(team_3)
-
-monster_repository.save(monster_1)
-monster_repository.save(monster_2)
-monster_repository.save(monster_3)
 
 game_repository.save(game_1)
 game_repository.save(game_2)

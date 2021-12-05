@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, Blueprint
 from models.league import League
 import repositories.team_repository as team_repository
 import repositories.league_repository as league_repository
+import repositories.monster_repository as monster_repository
 from models.team import Team
 teams_blueprint = Blueprint("teams",__name__)
 
@@ -18,7 +19,8 @@ def show(id):
     # find which league the team is in
     league = league_repository.select(team.league.id)
     # monsters to go here
-    return render_template("teams/show.html",team=team, league=league)
+    monsters = monster_repository.monsters_from_team(team)
+    return render_template("teams/show.html",team=team, league=league, monsters=monsters)
 
 
 @teams_blueprint.route("/<league_id>/teams/new")

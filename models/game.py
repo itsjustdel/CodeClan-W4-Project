@@ -1,4 +1,3 @@
-from models.team import Team
 import repositories.monster_repository as monster_repository
 import random
 
@@ -14,8 +13,8 @@ class Game:
         weather = random.choice(['Blizzard', 'Hail', 'Heavy rain', 'Ice Storm', 'Lightning', 'Windy'])
         # we need the monsters/players to play the game
         # grab from db
-        home_team_monsters = monster_repository.select_all_from_team(self.home_team)
-        away_team_monsters =  monster_repository.select_all_from_team(self.away_team)
+        home_team_monsters = monster_repository.monsters_from_team(self.home_team)
+        away_team_monsters =  monster_repository.monsters_from_team(self.away_team)
         #work out power for each team
         home_team_power = team_power(weather, home_team_monsters)
         away_team_power = team_power(weather, away_team_monsters)
