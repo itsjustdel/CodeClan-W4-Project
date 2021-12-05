@@ -1,22 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1> <a href="/monsters/{{monster.id}}">{{monster.name}}</a> </h1>
-<h2>Limbs = {{monster.limbs}}  </h2>
-<h2>Favourite Weather = {{monster.fav_weather}}</h2>
-<!-- <a href="/teams/{{team.id}}/games">Show Team's Games</a>
-<a href="/teams/{{team.id}}/edit">Edit Team</a> -->
-
-<form action="/monsters/{{ monster.id }}/delete" method="POST">
-    <input type="submit" value="delete"/>
-  </form>
-<!-- <a href="/teams/{{team.id}}/delete">Delete Team</a> -->
-<!-- <h3>Monsters</h3> -->
-<!-- <ul>
-    {% for monster in team.monsters %}
-    <li>{{monster.name}}</li>    
-    {% endfor %}
+<h1>All Monsters</h1>
+<ul>
+  {% for monster in monsters %}
+  <li>
+    <p><a href="/monsters/{{monster.id}}">{{ monster.name }}</a> 
     
-</ul> -->
+    </p>
+  </li>
+  {% endfor %}
+</ul>
+
+<!-- <a href="/monsters/new">Add New Monster</a> -->
+
 
 {% endblock %}

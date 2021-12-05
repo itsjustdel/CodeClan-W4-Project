@@ -72,3 +72,4 @@ def teams(league):
         teams.append(team)
 
     return teams
+
