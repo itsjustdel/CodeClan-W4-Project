@@ -27,5 +27,6 @@ CREATE TABLE monsters(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     limbs INT,
+    fav_weather VARCHAR(255),
     team_id INT REFERENCES teams(id) ON DELETE CASCADE
 );

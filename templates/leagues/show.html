@@ -9,9 +9,9 @@
 
 <h3>League Table</h3>
     <ul>
-        {% for team in teams %}
+        {% for team_and_win in teams_and_wins %}
             <li>
-            <a href="/teams/{{team.id}}"> {{team.name}}</a>   
+            <a href="/teams/{{team_and_win[0].id}}"> {{team_and_win[0].name}} - Wins = {{team_and_win[1]}}</a>
             </li>
         {% endfor %}    
     </ul>
@@ -19,8 +19,5 @@
     <a href="/teams/{{league.id}}/new">Add Team</a>
     <a href="/leagues/{{league.id}}/games">View All Games in this league</a>
     <a href="/leagues/{{league.id}}/games/new">Play Game</a>
-    
-
-
 
 {% endblock %}

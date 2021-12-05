@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request, redirect, Blueprint
-from models.league import League
+from models.league import League, sort_teams_by_wins
 from models.team import Team
 import repositories.league_repository as league_repository
 import repositories.team_repository as team_repository
+import repositories.game_repository as game_repository
 
 leagues_blueprint = Blueprint("leagues",__name__)
 
@@ -15,7 +16,9 @@ def leagues():
 def show(id):    
     league = league_repository.select(id)
     teams = team_repository.teams(league)
-    return render_template("leagues/show.html",league=league, teams=teams)
+    games = game_repository.games_for_league(league)
+    teams_and_wins = sort_teams_by_wins(teams, games)
+    return render_template("leagues/show.html",league=league, teams_and_wins=teams_and_wins)
 
 
 @leagues_blueprint.route("/leagues/new")

@@ -7,7 +7,7 @@ import repositories.league_repository as leagues_repository
 def save(game):
     # sql statement
     sql = "INSERT into games (league_id, home_team_id, away_team_id, draw, winning_team_id) VALUES (%s, %s, %s, %s, %s) RETURNING ID"
-    # values will replace the placeholders "%s" 
+    # values will replace the placeholders "%s"     
     values = [game.league.id, game.home_team.id, game.away_team.id, game.draw, game.winning_team.id]
     # send off to the db with sql runner
     results = run_sql(sql, values)

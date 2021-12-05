@@ -37,7 +37,6 @@ def new_game(league_id):
     
     return render_template("games/new.html", teams=teams, league=league)
 
-
 @games_blueprint.route("/leagues/<league_id>/games/new", methods=['POST'])
 def play_game(league_id):
     # get league
@@ -46,9 +45,7 @@ def play_game(league_id):
     home_team = team_repository.select(request.form['home_team_id'])
     away_team = team_repository.select(request.form['away_team_id'])    
     # create a Game object
-    game = Game(league,home_team,away_team)
-    # play the game and find out who won!
-    game.play()
+    game = Game(league,home_team,away_team)   
     # save to db
     game_repository.save(game)
     
