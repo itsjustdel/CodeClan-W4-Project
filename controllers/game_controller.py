@@ -46,6 +46,7 @@ def play_game(league_id):
     away_team = team_repository.select(request.form['away_team_id'])    
     # create a Game object
     game = Game(league,home_team,away_team)   
+    game.play()
     # save to db
     game_repository.save(game)
     

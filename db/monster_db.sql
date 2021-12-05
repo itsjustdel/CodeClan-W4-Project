@@ -19,7 +19,6 @@ CREATE TABLE games(
     league_id INT REFERENCES leagues(id) ON DELETE CASCADE,
     home_team_id INT REFERENCES teams(id) ON DELETE CASCADE,
     away_team_id INT REFERENCES teams(id) ON DELETE CASCADE,
-    draw BOOLEAN,
     winning_team_id INT REFERENCES teams(id) ON DELETE CASCADE NULL      
 );
 

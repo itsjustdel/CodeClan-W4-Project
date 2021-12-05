@@ -6,9 +6,9 @@ import repositories.league_repository as leagues_repository
 # method to save game to db
 def save(game):
     # sql statement
-    sql = "INSERT into games (league_id, home_team_id, away_team_id, draw, winning_team_id) VALUES (%s, %s, %s, %s, %s) RETURNING ID"
+    sql = "INSERT into games (league_id, home_team_id, away_team_id, winning_team_id) VALUES (%s, %s, %s, %s) RETURNING ID"
     # values will replace the placeholders "%s"     
-    values = [game.league.id, game.home_team.id, game.away_team.id, game.draw, game.winning_team.id]
+    values = [game.league.id, game.home_team.id, game.away_team.id, game.winning_team.id]
     # send off to the db with sql runner
     results = run_sql(sql, values)
     # give our python class back the db asigned as its id
@@ -29,7 +29,7 @@ def select_all():
         winning_team = teams_repository.select(row['winning_team_id'])
         league = leagues_repository.select(row['league_id'])
         # now we have team objects, we can make a game class with these 
-        game = Game(league, home_team, away_team, row['draw'], winning_team)
+        game = Game(league, home_team, away_team, winning_team)
         games.append(game)
 
     return games
@@ -41,7 +41,7 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        game = Game(result['league_id'], result['home_team_id'],result['away_team_id'],result['draw'],result['winning_team_id'])
+        game = Game(result['league_id'], result['home_team_id'],result['away_team_id'],result['winning_team_id'])
     
     return game
 
@@ -67,7 +67,7 @@ def games_for_team(team):
         winning_team = teams_repository.select(row['winning_team_id'])
         league = leagues_repository.select(team.id)
         # now we have team objects, we can make a game class with these 
-        game = Game(league, home_team, away_team, row['draw'], winning_team)
+        game = Game(league, home_team, away_team, winning_team)
         games.append(game)
 
     return games
@@ -83,7 +83,7 @@ def games_for_league(league):
         away_team = teams_repository.select(row['away_team_id'])
         winning_team = teams_repository.select(row['winning_team_id'])        
         # now we have team objects, we can make a game class with these 
-        game = Game(league, home_team, away_team, row['draw'], winning_team)
+        game = Game(league, home_team, away_team, winning_team)
         games.append(game)
 
     return games

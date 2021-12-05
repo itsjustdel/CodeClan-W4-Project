@@ -35,8 +35,6 @@ def new_league():
 # DELETE
 @leagues_blueprint.route("/leagues/<id>/delete", methods=['POST'])
 def delete_team(id):
-    # get league id from the team we about to delete so we can redirect back to league
-    league = league_repository.select(id)
     league_repository.delete(id)
     return leagues()
 
