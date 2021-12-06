@@ -1,21 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1> <a href="/leagues/{{league.id}}">{{league.name}}</a> </h1>
-<a href="/leagues/{{league.id}}/edit">Edit League</a>
-<form action="/leagues/{{league.id}}/delete" method="POST">
-    <input type="submit" value="delete"/>
-  </form>
+<h2> <a href="/leagues/{{league.id}}">{{league.name}}</a> </h2>
 
-<h3>League Table</h3>
-    <ul>
+    
+    <table id="leagues">
+        <tr>
+            <th>Team</th>    
+            <th>Wins</th>    
+          </tr>
         {% for team_and_win in teams_and_wins %}
-            <li>
-            <a href="/teams/{{team_and_win[0].id}}"> {{team_and_win[0].name}} - Wins = {{team_and_win[1]}}</a>
-            </li>
+            <tr>
+                <td>
+                    <a href="/teams/{{team_and_win[0].id}}"> {{team_and_win[0].name}} </a>
+                </td>
+                <td>
+                    {{team_and_win[1]}}
+                </td>
+            </tr>
         {% endfor %}    
-    </ul>
+        </table>
 
+    <a href="/leagues/{{league.id}}/edit">Edit League</a>
+    <form action="/leagues/{{league.id}}/delete" method="POST">
+        <input type="submit" value="delete"/>
+  </form>
     <a href="/{{league.id}}/teams/new">Add Team</a>
     <a href="/leagues/{{league.id}}/games">View All Games in this league</a>
     <a href="/leagues/{{league.id}}/games/new">Play Game</a>

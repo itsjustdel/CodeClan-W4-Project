@@ -1,25 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Monsters Working <Title></Title></title>
+  <title>Monster League</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/league.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/team.css') }}">
 </head>
 <body>
 <main>
   <nav>
-    <ul>
-      <li>
-        <a href="/leagues">Leagues</a>
-      </li>
-      <li>
-        <a href="/teams">Teams</a>
-      </li>
-      <li>
-        <a href="/games">Games</a>
-      </li>
-      <li>
-        <a href="/monsters">Monsters</a>
-      </li>
+    <ul class="nav_bar">
+      <li class="nav_bar_li" ><a href="/leagues">Leagues</a></li>
+      <li class="nav_bar_li"><a href="/teams">Teams</a></li>
+      <li class="nav_bar_li"><a href="/games">Games</a></li>
+      <li class="nav_bar_li"><a href="/monsters">Monsters</a></li>
     </ul>
   </nav>
   <section id="content">

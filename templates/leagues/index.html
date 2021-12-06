@@ -1,21 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>All Leagues</h1>
-<!-- 
-<p class="btn--wrapper">
-  <a class="btn btn--action" href="/visits/new">New visit</a>
-</p> -->
 
-<ul>
+<table id="leagues">
+  <tr>
+    <th>Leagues</th>    
+  </tr>
   {% for league in leagues %}
-  <li>
-    <p><a href="/leagues/{{league.id}}">{{ league.name }}</a> 
-    
-    </p>
-  </li>
+  <tr>
+    <td><a href="/leagues/{{league.id}}">{{ league.name }}</td>     
+  </tr>
   {% endfor %}
-</ul>
+</table>
+
+
 
 <a href="/leagues/new">Add New League</a>
 

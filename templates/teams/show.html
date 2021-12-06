@@ -4,18 +4,33 @@
 <h1> <a href="/teams/{{team.id}}">{{team.name}}</a> </h1>
 <h2>League : <a href="/leagues/{{league.id}}">{{league.name}}</a></h2>
 
-<a href="/games/{{team.id}}">Show Team's Games</a>
+
+
+<div class="centered">
+ 
+  <section class="cards">
+    {% for monster in monsters %} 
+    <article class="card">
+      <table>
+        <thead class ="monster_name">{{monster.name}}</thead>
+          <tr>
+            <td>Limbs</td>
+            <td>{{monster.limbs}}</td>
+          </tr>   <tr>
+            <td>Favourite Weather</td>
+            <td>{{monster.fav_weather}}</td>
+          </tr>   
+        </table>   
+    </article><!-- /card-one -->
+    {% endfor %}    
+  </section>
+  </div>
+
+  <a href="/games/{{team.id}}">Show Team's Games</a>
 <a href="/teams/{{team.id}}/edit">Edit Team</a>
 
 <form action="/teams/{{ team.id }}/delete" method="POST">
     <input type="submit" value="delete"/>
   </form>
-<!-- <a href="/teams/{{team.id}}/delete">Delete Team</a> -->
-<h3>Monsters</h3>
-<ul>
-    {% for monster in monsters %}
-    <li><a href="/monsters/{{monster.id}}">{{monster.name}}</a></li>    
-    {% endfor %}    
-</ul>
 
-{% endblock %}
+  {% endblock %} 

@@ -36,7 +36,11 @@ def new_team(league_id):
     team_name = request.form['team_name']
     league = league_repository.select(league_id)
     team = Team(team_name,league)
+    # save this team to db
     team_repository.save(team)
+    # now the team has an id, populate team with monsters
+    monster_repository.add_monsters(team)
+    
     # to show league we need all the teams from league (after we saved the new team to the league)
     teams = team_repository.teams(league)
     # we need all games that have been played
