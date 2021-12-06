@@ -2,17 +2,17 @@
 
 {% block content %}
 <h1>All Monsters</h1>
-<ul>
+<table class="table">
+  <tr>
+      <th>Name</th>    
+    </tr>
   {% for monster in monsters %}
-  <li>
-    <p><a href="/monsters/{{monster.id}}">{{ monster.name }}</a> 
-    
-    </p>
-  </li>
-  {% endfor %}
-</ul>
-
-<!-- <a href="/monsters/new">Add New Monster</a> -->
-
+      <tr>
+          <td>
+              <a href="/monsters/{{monster.id}}"> {{monster.name}} </a>
+          </td>
+      </tr>
+  {% endfor %}    
+  </table>
 
 {% endblock %}

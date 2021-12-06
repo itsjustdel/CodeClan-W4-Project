@@ -1,15 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>All Teams</h1>
 
-<ul>
+<table class="table">
+  <tr>
+    <th>Teams</th>    
+  </tr>
   {% for team in teams %}
-  <li>
-    <p><a href="/teams/{{team.id}}">{{ team.name }}</a> </p>
-  </li>
+  <tr>
+    <td><a href="/teams/{{team.id}}">{{ team.name }}</a> </td>     
+  </tr>
   {% endfor %}
-</ul>
+</table>
 
 
 {% endblock %}

@@ -8,6 +8,7 @@ monsters_blueprint = Blueprint("monsters",__name__)
 def monsters():
     # show all monsters
     monsters = monster_repository.select_all()
+    
     return render_template("monsters/index.html", monsters=monsters)
 
 @monsters_blueprint.route("/monsters/<id>")
