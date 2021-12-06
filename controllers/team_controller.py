@@ -1,8 +1,9 @@
 from flask import Flask, render_template, request, redirect, Blueprint
-from models.league import League
+from models.league import League, sort_teams_by_wins
 import repositories.team_repository as team_repository
 import repositories.league_repository as league_repository
 import repositories.monster_repository as monster_repository
+import repositories.game_repository as game_repository
 from models.team import Team
 teams_blueprint = Blueprint("teams",__name__)
 
@@ -23,10 +24,27 @@ def show(id):
     return render_template("teams/show.html",team=team, league=league, monsters=monsters)
 
 
+# NEW
 @teams_blueprint.route("/<league_id>/teams/new")
 def new_team_form(league_id):
     league = league_repository.select(league_id)
+    # got to team
     return render_template("/teams/new.html", league=league)
+
+@teams_blueprint.route("/leagues/<league_id>/teams/new", methods=['POST'])
+def new_team(league_id):        
+    team_name = request.form['team_name']
+    league = league_repository.select(league_id)
+    team = Team(team_name,league)
+    team_repository.save(team)
+    # to show league we need all the teams from league (after we saved the new team to the league)
+    teams = team_repository.teams(league)
+    # we need all games that have been played
+    games = game_repository.games_for_league(league)
+    # sort the list
+    teams_and_wins = sort_teams_by_wins(teams, games)    
+    # and show the sorted league 
+    return render_template("leagues/show.html",league=league, teams_and_wins=teams_and_wins)
 
 # EDIT
 @teams_blueprint.route("/teams/<team_id>/edit")
@@ -45,16 +63,7 @@ def update_team(team_id):
     # return to team page
     return show(team_id)
 
-# NEW
-@teams_blueprint.route("/<league_id>/teams/new", methods=['POST'])
-def new_team(league_id):        
-    team_name = request.form['team_name']
-    league = league_repository.select(league_id)
-    team = Team(team_name,league)
-    team_repository.save(team)
-    # show league we added team to
-    teams = team_repository.teams(league)
-    return render_template("leagues/show.html",league=league, teams=teams)
+
 
 # DELETE
 @teams_blueprint.route("/teams/<id>/delete", methods=['POST'])

@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, Blueprint
 from models.league import League, sort_teams_by_wins
-from models.team import Team
+from models.game import Game
 import repositories.league_repository as league_repository
 import repositories.team_repository as team_repository
 import repositories.game_repository as game_repository
@@ -17,7 +17,8 @@ def show(id):
     league = league_repository.select(id)
     teams = team_repository.teams(league)
     games = game_repository.games_for_league(league)
-    teams_and_wins = sort_teams_by_wins(teams, games)
+    # get a list of team names sorted by wins, including wins
+    teams_and_wins = sort_teams_by_wins(teams, games)    
     return render_template("leagues/show.html",league=league, teams_and_wins=teams_and_wins)
 
 

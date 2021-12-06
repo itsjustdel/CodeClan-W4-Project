@@ -3,7 +3,7 @@
 {% block content %}
 <h1>Add New Team</h1>
 
-<form action="/teams/{{league.id}}/new" method="post">    
+<form action="/leagues/{{league.id}}/teams/new" method="post">    
     <label for="team_name">Team name:</label>
     <input type="text" id="team_name" name="team_name">
     <input type="submit" value="Add!">
