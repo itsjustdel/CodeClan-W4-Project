@@ -44,4 +44,6 @@ game_repository.save(game_1)
 game_repository.save(game_2)
 game_repository.save(game_3)
 
-#pdb.set_trace()
+games = game_repository.games_for_team(team_1)
+
+pdb.set_trace()

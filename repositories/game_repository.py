@@ -65,7 +65,8 @@ def games_for_team(team):
         home_team = teams_repository.select(row['home_team_id'])
         away_team = teams_repository.select(row['away_team_id'])
         winning_team = teams_repository.select(row['winning_team_id'])
-        league = leagues_repository.select(team.id)
+        # 
+        league = leagues_repository.select(team.league.id)
         # now we have team objects, we can make a game class with these 
         game = Game(league, home_team, away_team, winning_team)
         games.append(game)

@@ -12,7 +12,7 @@ def games():
     games = game_repository.select_all()    
     return render_template("games/index.html", games = games)
 
-@games_blueprint.route("/teams/<id>/games")
+@games_blueprint.route("/games/<id>/")
 def show_team_games(id):    
     # show all games for team
     team = team_repository.select(id)
