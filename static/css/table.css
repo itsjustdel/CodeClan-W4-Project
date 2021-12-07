@@ -100,7 +100,7 @@
     height: 0%;
     font-size: 0%;
     text-align: center;
-    animation: .5s ease 0s normal forwards fadein ; 
+    animation: .5s ease 0s normal forwards cell_open ; 
 
     
     /* border: 5px solid grey; */
@@ -110,7 +110,7 @@
   
   }
 
-  @keyframes fadein{
+  @keyframes cell_open{
     0% 
     { 
       

@@ -89,12 +89,6 @@ footer a{
     text-shadow: #000 0px 0px 2px;
 }
 
-@keyframes fadein{
-    0% { opacity:0; }
-    66% { opacity:0; }
-    100% { opacity:1; }
-}
-
 .edit_container{
   display: flex;
   justify-content: center;
@@ -145,4 +139,34 @@ footer a{
   padding: 20px;
   display: flex;
   justify-content: center;
+}
+
+#outcome_1{
+
+  text-align: center;    
+  justify-content: center;
+  -webkit-animation: 1s ease 0s normal forwards 1 fadein;
+  animation: 1s ease 0s normal forwards 1 fadein;
+}
+
+#outcome_2{
+
+  text-align: center;    
+  justify-content: center;     
+  animation: 2s ease 0s normal forwards 1 fadein;
+}
+#outcome_winner{
+  font-size: 100px;
+  text-align: center;    
+  justify-content: center; 
+  opacity: 0;
+  animation: 1s ease 3s normal forwards fadein ;
+  color: #FFC07C;
+  text-shadow: #000 0px 0px 2px;
+}
+
+@keyframes fadein{
+  0% { opacity:0; }
+  66% { opacity:0; }
+  100% { opacity:1; }
 }

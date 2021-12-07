@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Result Page - something fun here</h1>
-
-<p>{{game.home_team.name}} vs {{game.away_team.name}}</p>
-<p>The winning team is {{game.winning_team.name}}</p>
-
+<div class="centred_container">
+    <div class="results">
+        <h2 id="outcome_1">   {{game.home_team.name}} vs {{game.away_team.name}}</h2>
+        <h2 id="outcome_2">And the winner is... </h2>
+        <div id="outcome_winner">{{game.winning_team.name}}!!</div>
+    </div>
+</div>
 {% endblock %}
