@@ -18,6 +18,11 @@ class TestGame(unittest.TestCase):
         self.monster_5 = Monster("John",4,"Blizzard",self.team_2)
         self.monster_6 = Monster("John",4,"Blizzard",self.team_2)
         
+    def test_monster_name__John(self):
+        self.assertEqual("John", self.monster_1.name)
+    
+    def test_monster_limbs__8(self):
+        self.assertEqual(8,self.monster_1.limbs)
         
     def test_team_power__weather_match_result_16(self):
          # Act
