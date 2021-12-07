@@ -42,8 +42,7 @@
 
   .table_body
   {
-    font-size: 1em;
-    
+    font-size: 1em;    
     border: 5px solid grey;
     padding: 20px;
     text-align: center;
@@ -142,29 +141,41 @@ input {
 textarea:focus, input:focus{
   outline: none;
 }
-/* 
-.no-outline:focus {
-  outline: none;
-} */
-/* 
-  tfoot{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-  } */
 
 .table_winner{
-background-color:green;
+  
+   background-color:lightgreen; 
+  font-size: 1em;    
+  border: 5px solid grey;
+  padding: 20px;
+  text-align: center;
+  border-width: 5px;
+  border-top-left-radius: 37px 140px;
+  border-top-right-radius: 23px 130px;
+  border-bottom-left-radius: 110px 19px;
+  border-bottom-right-radius: 120px 24px;
+  /* display: block; */
+  /* background-color:green; */
 }
 .table_loser{
-  background-color: red;
+  background-color:red; 
+  font-size: 1em;    
+  border: 5px solid grey;
+  padding: 20px;
+  text-align: center;
+  border-width: 5px;
+  border-top-left-radius: px 100px;
+  border-top-right-radius: 45px 950px;
+  border-bottom-left-radius: 50px 120px;
+  border-bottom-right-radius: 56px 24px;
+
 }
 
 .vs
 {
-  font-size: 1em;
-    
-  border:none;
+  /* font-size: 1em;
+    background-color: none !important;
+  border:none; */
   padding: 20px;
   text-align: center;
   
