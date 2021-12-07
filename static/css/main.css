@@ -124,3 +124,25 @@ footer a{
 {
   background-color: indianred;
 }
+.game_form
+{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: indianred;
+  padding: 20px;
+  row-gap: 20px;
+}
+.next_team
+{
+  display: flex;
+  justify-content: center;
+  background-color: seagreen;
+}
+.centred_container
+{
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}

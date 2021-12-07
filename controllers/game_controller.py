@@ -43,9 +43,10 @@ def new_game_select_away_team(league_id):
     league = league_repository.select(league_id)  
     teams = team_repository.teams(league)  
     # retreive info from form
-    home_team_id = request.form['team_id']
+    home_team = team_repository.select(request.form['team_id'])
     
-    return render_template("games/new_game_select_away_team.html", teams=teams, league=league, home_team_id=home_team_id)
+    
+    return render_template("games/new_game_select_away_team.html", teams=teams, league=league, home_team=home_team)
 
 
 @games_blueprint.route("/leagues/<league_id>/games/<home_team_id>/result", methods=['POST'])

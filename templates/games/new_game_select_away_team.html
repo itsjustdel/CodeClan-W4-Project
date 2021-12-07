@@ -1,16 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Add New Game</h1>
 
-<form action="/leagues/{{league.id}}/games/{{home_team_id}}/result" method="post">
+
+<div class="centred_container">
+<form class="game_form" action="/leagues/{{league.id}}/games/{{home_team.id}}/result" method="post">
+    
     <label for="home_team">Select Away Team:</label>
     <select name="team_id" id="home_team">
     {% for team in teams %}
-    <option value="{{ team.id }}">{{ team.name }}</option>
+        {% if team.id != home_team.id %}
+            <option value="{{ team.id }}">{{ team.name }}</option>        
+        {% endif %}
+        
+    
     {% endfor %}
     </select>
     <input type='submit' value="Play!" >
+    
 </form>
-
+</div>
 {% endblock %}
