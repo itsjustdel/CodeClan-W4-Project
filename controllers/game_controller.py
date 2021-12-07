@@ -29,15 +29,42 @@ def show_league_games(league_id):
     return render_template("games/show.html", games=games)
 
 @games_blueprint.route("/leagues/<league_id>/games/new")
-def new_game(league_id):
+def new_game_select_home_team(league_id):
     # to create a new game we need
     # a list of all teams in the league
     league = league_repository.select(league_id)
     teams = team_repository.teams(league)
     
-    return render_template("games/new.html", teams=teams, league=league)
+    return render_template("games/new_game_select_home_team.html", teams=teams, league=league)
 
-@games_blueprint.route("/leagues/<league_id>/games/new", methods=['POST'])
+@games_blueprint.route("/leagues/<league_id>/games/new/next", methods=['POST'])
+def new_game_select_away_team(league_id):
+    # get league
+    league = league_repository.select(league_id)  
+    teams = team_repository.teams(league)  
+    # retreive info from form
+    home_team_id = request.form['team_id']
+    
+    return render_template("games/new_game_select_away_team.html", teams=teams, league=league, home_team_id=home_team_id)
+
+
+@games_blueprint.route("/leagues/<league_id>/games/<home_team_id>/result", methods=['POST'])
+def new_game_results(league_id,home_team_id):
+    # get league
+    league = league_repository.select(league_id)        
+    # retreive info from url and get from db
+    home_team = team_repository.select(home_team_id)
+    # retreive info from form    
+    away_team = team_repository.select(request.form['team_id'])    
+    # create a Game object
+    game = Game(league,home_team,away_team)   
+    game.play()
+    # save to db
+    game_repository.save(game)
+    
+    return render_template("games/result.html", game=game)
+
+@games_blueprint.route("/leagues/<league_id>/games/result", methods=['POST'])
 def play_game(league_id):
     # get league
     league = league_repository.select(league_id)    

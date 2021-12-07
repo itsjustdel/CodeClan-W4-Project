@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Add New Game</h1>
+
+<form action="/leagues/{{league.id}}/games/new/next" method="post">
+    <label for="team">Select Home Team:</label>
+    <select name="team_id" id="team">
+    {% for team in teams %}
+    <option value="{{ team.id }}">{{ team.name }}</option>
+    {% endfor %}
+    </select>
+    <input type='submit' value="Play!">
+</form>
+
+{% endblock %}

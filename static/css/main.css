@@ -54,6 +54,21 @@ html
     background-color: #04AA6D;
   }
 
+footer{
+  padding-top: 20px;
+ display: flex;
+ justify-content: center; 
+ column-gap: 1%;
+ 
+}
+footer a{
+  color: seagreen;
+  line-height:1.15; padding: 20px; border: 5px solid seagreen; ;height: 100%;font-size: 100%;      
+  border-top-left-radius: 48px 40px;
+  border-top-right-radius: 23px 30px;
+  border-bottom-left-radius: 10px 19px;
+  border-bottom-right-radius: 12px 24px;
+}
 .enter
 {
   text-decoration: none;
