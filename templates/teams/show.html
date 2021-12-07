@@ -4,8 +4,9 @@
 <h2> <a href="/leagues/{{league.id}}">{{league.name}}</a></h2>
 <h2> <a href="/teams/{{team.id}}">{{team.name}}</a> </h2>
 
+
 <h2>Monsters in Team</h2>
-<section class="table">
+<section class="table" id="monster_table">
   {% for monster in monsters %} 
   <article class="card">
     <table>

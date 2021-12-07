@@ -32,14 +32,12 @@ def new_team_form(league_id):
     games = game_repository.games_for_league(league)
     # get a list of team names sorted by wins, including wins
     teams_and_wins = sort_teams_by_wins(teams, games)    
-
-    ####      
-    # got to team
+    print("route a")
     return render_template("/teams/new.html", league=league, teams_and_wins=teams_and_wins)
 
 @teams_blueprint.route("/leagues/<league_id>/new", methods=['POST'])
 def new_team(league_id):  
-    
+    print("route b")
     team_name = request.form['team_name']
     league = league_repository.select(league_id)
     team = Team(team_name,league)

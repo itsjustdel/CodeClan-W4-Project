@@ -13,11 +13,15 @@
                 <td class = "table_body">{{team_and_win[1]}}</td>
             </tr>
         {% endfor %}    
-        <tr><td class="table_empty"><br/></td></tr>
-        
+        <tr>
+          <td class="table_cell_open">     
+          <form action="/leagues/{{league.id}}/new" method="post">    
+          <input type="text" id="team_name" name="team_name" autocomplete="off" autofocus="autofocus">
+        </td></tr>
+
         <tfoot>
           <tr>
-            <td class ="table_foot"><a href="/leagues/{{league.id}}/new">Add New Team</a></td>
+            <td class ="table_foot"><input type="submit" value ="Add"></td>
           </tr>
         </tfoot>
       </table>

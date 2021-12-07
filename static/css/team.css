@@ -1,0 +1,32 @@
+
+.monster_title
+{
+    /* display: block; */
+    background-color: seagreen;
+    text-align: center;
+    font-size: 2em;
+}
+.monster_card
+{ 
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;    
+    /* border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
+    background-color: white;
+    /* margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px; */
+    margin: auto;
+    
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+}
+
+#monster_table{
+    display: flex;
+}
