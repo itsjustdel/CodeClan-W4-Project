@@ -18,26 +18,43 @@ monster_repository.delete_all()
 team_repository.delete_all()
 game_repository.delete_all()
 
-league = League("Top League")
+league_1 = League("Monster's Mega League")
+league_2 = League("Sunday League")
 
-league_repository.save(league)
+league_repository.save(league_1)
+league_repository.save(league_2)
 
-team_1 = Team("Roy and the Ravers", league)
-team_2 = Team("Ltnt Tarzan and the Mongrels", league)
-team_3 = Team("Crepescule", league)
 
+team_1 = Team("The Vlurpon 3", league_1)
+team_2 = Team("The Horrendious Howlers", league_1)
+team_3 = Team("Wamdazzlers", league_1)
+
+team_4 = Team("Snout Disguisers", league_2)
+team_5 = Team("Godzilla's Corpse", league_2)
+team_6 = Team("From Small to Big", league_2)
+team_7 = Team("Captain Munch's Famous Bozos", league_2)
+team_8 = Team("Terrific Flinch", league_2)
+team_9 = Team("Spare Incisor", league_2)
+
+team_list = [team_1,team_2,team_3,team_4,team_5,team_6,team_7,team_8,team_9]
 # save first so we have id
-team_repository.save(team_1)
-team_repository.save(team_2)
-team_repository.save(team_3)
+for team in team_list:
+    team_repository.save(team)
 
-monsters_1 = monster_repository.add_monsters(team_1)
-monsters_2 = monster_repository.add_monsters(team_2)
-monsters_3 =monster_repository.add_monsters(team_3)
+# create and add monsters
+monsters_list = []
+for team in team_list:
+    monsters = monster_repository.add_monsters(team)
+    
+# monsters_1 = monster_repository.add_monsters(team_1)
+# monsters_2 = monster_repository.add_monsters(team_2)
+# monsters_3 = monster_repository.add_monsters(team_3)
+# monsters_4 = monster_repository.add_monsters(team_4)
 
-game_1 = Game(league, team_1, team_2)
-game_2 = Game(league, team_2, team_3)
-game_3 = Game(league, team_1, team_3)
+
+game_1 = Game(league_1, team_1, team_2)
+game_2 = Game(league_1, team_2, team_3)
+game_3 = Game(league_1, team_1, team_3)
 
 game_1.play(monsters_1, monsters_2, random.choice(weathers))
 game_2.play(monsters_2, monsters_3, random.choice(weathers))

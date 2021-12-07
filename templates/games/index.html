@@ -5,17 +5,17 @@
     <th><a href="/games">Games</a></th>    
   </tr>
 </table>
-<table class="table">
+<table class="table_games">
   
   {% for game in games %}
   <tr>
     {% if game.home_team.name == game.winning_team.name %}
     <td class="table_winner"><a href="/teams/{{game.home_team.id}}">{{ game.home_team.name }}</a></td>  
-    <td class="table_body">Beat</td>
+    <td class="table_body">Ate</td>
     <td class="table_loser"><a  href="/teams/{{game.away_team.id}}">{{game.away_team.name}}</a></td>  
     {% else %}
     <td class="table_loser" ><a href="/teams/{{game.home_team.id}}">{{ game.home_team.name }}</a></td>         
-    <td class="table_body">Beaten by</td>
+    <td class="table_body">Were Eaten by</td>
     <td class="table_winner"><a  href="/teams/{{game.away_team.id}}">{{game.away_team.name}}</a></td>
     {% endif %}
     

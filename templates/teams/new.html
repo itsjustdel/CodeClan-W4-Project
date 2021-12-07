@@ -4,8 +4,8 @@
 <h2><a href="/leagues/{{league.id}}">{{league.name}}</a></h2>
     <table class="table">
         <tr>
-            <th>Team</th>    
-            <th>Wins</th>    
+          <td class="table_body">Team</td>    
+          <td class="table_body"> Wins</td>   
           </tr>
         {% for team_and_win in teams_and_wins %}
             <tr>
@@ -21,7 +21,7 @@
 
         <tfoot>
           <tr>
-            <td class ="table_foot"><input type="submit" value ="Add"></td>
+            <td class ="table_body"><input type="submit" value ="Add New Team"></td>
           </tr>
         </tfoot>
       </table>
@@ -31,5 +31,10 @@
     <input type="text" id="team_name" name="team_name">
     <input type="submit" value="Add!">
 </form> -->
-
+<footer>
+      
+      <a href="/leagues/{{league.id}}/edit">Edit League</a>
+      <a href="/leagues/{{league.id}}/games">All Games in League</a>
+      <a href="/leagues/{{league.id}}/games/new">Play Game</a>
+  </footer>
 {% endblock %}

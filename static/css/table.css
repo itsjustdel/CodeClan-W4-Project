@@ -1,133 +1,140 @@
+:root
+{
+  --mid_green: #04AA6D;
+}
 
-.table {
-    font-family: 'Sigmar One', cursive;
-    /* border-collapse: collapse; */
-    width: 50%;
-    margin:auto;
-    justify-content: center;
-    padding-top:1em;
-    border-spacing: 1em;
+.table 
+{
+  font-family: 'Sigmar One', cursive;
+  width: 50%;
+  margin:auto;
+  justify-content: center;
+  padding-top:1em;
+  border-spacing: 1em;
+}
 
-  }
-  .table tr th a{
-    color: indianred;
-  }
-  .table tr td a
-  {
-    color: green;
-  }
+.table_games 
+{
+  font-family: 'Sigmar One', cursive;
+  width: 80%;
+  margin:auto;
+  justify-content: center;
+  padding-top:1em;
+  font-size: small;
 
-  .table tfoot tr td a
-  {
-    color: hotpink;
-  }
-  .table th{
-    
-    font-size: 3em;
-    padding: .5em;
-    padding-top: 1em;
-    
-    text-align: center;
-    /* background-color: lightblue; */
-    color: #04AA6D;
-    border: 5px solid #04AA6D;
-    /* border-radius: 10px; */
-    border-width: 10px;
-    border-top-left-radius: 138px 100px;
-    border-top-right-radius: 75px 200px;
-    border-bottom-left-radius: 56px 87px;
-    border-bottom-right-radius: 108px 65px;
-    outline: 5px solid green;
-  }
+}
+.table tr th a
+{
+  color: indianred;
+  text-shadow:black 0px 0px 1px;
+}
 
-  .table_body
-  {
-    font-size: 1em;    
-    border: 5px solid grey;
-    padding: 20px;
-    text-align: center;
-    border-width: 5px;
-    border-top-left-radius: 37px 140px;
-    border-top-right-radius: 23px 130px;
-    border-bottom-left-radius: 110px 19px;
-    border-bottom-right-radius: 120px 24px;
-  }
- 
-   .table tr:nth-child(even){
-     background-color: #f2f2f2;
-    
-    } 
-   .table tr:nth-child(odd){
-    } 
+@keyframes pulsate {
+  50%{ stroke-width:5px }
+}
+
+.table tr td a
+{
+  color: var(--mid_green);
+}
+
+.table tfoot tr td a
+{
+  color: black;
+}
+.table th{
   
-  .table tr:hover {
-    background-color: #ddd;
-  }
+  font-size: 3em;
+  padding: .5em;
+  padding-top: 1em;
+  padding-bottom: 1em;  
+  text-align: center;
+  color: #04AA6D;
+  border: 5px solid var(--mid_green);
+  border-width: 10px;
+  border-top-left-radius: 138px 100px;
+  border-top-right-radius: 75px 200px;
+  border-bottom-left-radius: 56px 87px;
+  border-bottom-right-radius: 108px 65px;
+  outline: 5px solid var(--mid_green)
+}
+
+.table_body
+{
+  font-size: 1em;    
+  border: 1px solid grey;
+  padding: 10px;
+  text-align: center;
+  border-width: 5px;
+  border: none;
+}
+
+.table tr:nth-child(even){
 
 
-  .table_foot
-  {
-    border: 5px solid green;
-    padding: 20px;
-    text-align: center;
-    border-width: 5px;
-    text-align: center;
-    background-color: #04AA6D;
-    color: white;
+} 
+.table tr:nth-child(odd){
+  background-color: #f2f2f2;
+} 
 
-    border-top-left-radius: 50px 60px;
-    border-top-right-radius: 80px 100px;
-    border-bottom-left-radius: 76px 84px;
-    border-bottom-right-radius: 75px 64px;
+footer a:hover {
+   background-color:coral;
+}
 
-  }
-  .table_foot a{
-    color: white;
-  }
 
-  .table_empty{
-    line-height: 0px;
-    padding: 0px;
-    border: 0px solid #ddd;
-    height: 0%;
-    font-size: 0%;
-  }
+.table_foot
+{
+  border: 5px solid var(--mid_green);
+  padding: 20px;
+  text-align: center;
+  border-width: 5px;
+  text-align: center;
+  background-color: var(--mid_green);
+  color: white;
 
-  .table_cell_open{
-    line-height: 0px;
-    padding: 0%;
-    border-width: 0px ;
-    height: 0%;
-    font-size: 0%;
-    text-align: center;
-    animation: .5s ease 0s normal forwards cell_open ; 
+  border-top-left-radius: 50px 60px;
+  border-top-right-radius: 80px 100px;
+  border-bottom-left-radius: 76px 84px;
+  border-bottom-right-radius: 75px 64px;
 
+}
+.table_foot a{
+  color: white;
+}
+
+.table_empty{
+  line-height: 0px;
+  padding: 0px;
+  border: 0px solid #ddd;
+  height: 0%;
+  font-size: 0%;
+}
+
+.table_cell_open{
+  line-height: 0px;
+  padding: 0%;
+  border-width: 0px ;
+  height: 0%;
+  font-size: 0%;
+  text-align: center;
+  animation: .5s ease 0s normal forwards cell_open;
+}
+
+@keyframes cell_open
+{
+  0% 
+  { 
     
-    /* border: 5px solid grey; */
-    /* padding: 20px; */
-    /* text-align: center; */
-    /* border-width: 5px; */
-  
   }
-
-  @keyframes cell_open{
-    0% 
-    { 
-      
-    }
-    66% 
-    { 
-      /* line-height:0; padding: 0px;border: 0px solid #ddd;height: 0%;font-size: 0%;*/
-    }
-    100% 
-    { 
-      line-height:1.15; padding: 20px; border: 5px solid grey; ;height: 100%;font-size: 100%;      
-      border-top-left-radius: 37px 140px;
-      border-top-right-radius: 23px 130px;
-      border-bottom-left-radius: 110px 19px;
-      border-bottom-right-radius: 120px 24px;
-      
-    }
+  66% 
+  { 
+    
+  }
+  100% 
+  { 
+    line-height:1.15; padding: 20px; border: 5px dashed black; ;height: 100%;font-size: 100%; 
+    
+  }
 }
 
 input {
@@ -138,46 +145,35 @@ input {
   color: black;
   
 }
-textarea:focus, input:focus{
+textarea:focus, input:focus
+{
   outline: none;
 }
 
-.table_winner{
-  
-   background-color:lightgreen; 
+.table_winner
+{
+   background-color:var(--mid_green); 
   font-size: 1em;    
-  border: 5px solid grey;
+  border: solid 5px darkgreen;
   padding: 20px;
   text-align: center;
-  border-width: 5px;
-  border-top-left-radius: 37px 140px;
-  border-top-right-radius: 23px 130px;
-  border-bottom-left-radius: 110px 19px;
-  border-bottom-right-radius: 120px 24px;
-  /* display: block; */
-  /* background-color:green; */
+}
+.table_winner a{
+  color: #f2f2f2;
 }
 .table_loser{
-  background-color:red; 
+  background-color:indianred; 
   font-size: 1em;    
-  border: 5px solid grey;
+  border: solid 5px darkred;
   padding: 20px;
   text-align: center;
-  border-width: 5px;
-  border-top-left-radius: 50px 400px;
-  border-top-right-radius: 45px 50px;
-  border-bottom-left-radius: 50px 10px;
-  border-bottom-right-radius: 56px 24px;
-
 }
 
+.table_loser a {
+  color: #f2f2f2;
+}
 .vs
-{
-  /* font-size: 1em;
-    background-color: none !important;
-  border:none; */
-  padding: 20px;
-  text-align: center;
-  
+{  padding: 20px;
+  text-align: center;  
 }
 

@@ -4,8 +4,8 @@
 <h2> <a href="/leagues/{{league.id}}">{{league.name}}</a> </h2>
     <table class="table">
         <tr>
-            <th>Team</th>    
-            <th>Wins</th>    
+            <td class="table_body">Team</td>    
+            <td class="table_body"> Wins</td>    
           </tr>
         {% for team_and_win in teams_and_wins %}
             <tr>
@@ -17,7 +17,7 @@
         
         <tfoot>
           <tr>
-            <td class="table_foot"><a href="/leagues/{{league.id}}/new">Add New Team</a></td>
+            <td class="table_body"><a href="/leagues/{{league.id}}/new">Add New Team</a></td>
           </tr>
         </tfoot>
       </table>

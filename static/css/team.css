@@ -1,44 +1,45 @@
-
+:root
+{
+  --mid_green: #04AA6D;
+}
 .monster_title
 {
-    /* display: block; */
-    background-color: seagreen;
+    background-color: mid;
     text-align: center;
     font-size: 2em;
+}
+#card_title_text{
+    color: black
 }
 .monster_card
 { 
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;    
-    /* border-radius: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
     background-color: white;
-    /* margin-left: 30px;
-    margin-right: 30px;
-    margin-top: 30px;
-    margin-bottom: 30px; */
-    margin: auto;
-    
+    margin: auto;    
 }
 
-.card{
+.card
+{
     display: flex;
     flex-direction: column;
+    
 }
 
 #monster_table{
     display: flex;
+    column-gap: 15px;    
 }
 
 .card_title{
-    width: 95%;
+    width: 100%;
     margin: auto;    
     justify-content: center;
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: #04AA6D;
+    background-color: var(--mid_green);
     color: white;
   }  
 
