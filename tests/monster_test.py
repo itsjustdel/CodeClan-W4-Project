@@ -1,13 +1,15 @@
 import unittest
-from controllers.game_controller import games
-from models.game import Game, team_power
-from models.team import Team
-from models.league import League
 from models.monster import Monster
 
-# class TestMonster(unittest.TestCase):
-#     def setUp(self):
-#         self.league_1 = League("Test League")
+class TestMonster(unittest.TestCase):
+    def setUp(self):
+        self.monster_1 = Monster("Test Monster",4,"Hail")
 
-#     def test_league_name__Test_League(self):
-#         self.assertEqual("Test League", self.league_1.name)
+    def test_monster_name__Test_Monster(self):
+        self.assertEqual("Test Monster", self.monster_1.name)
+
+    def test_monster_limbs__4(self):
+        self.assertEqual(4, self.monster_1.limbs)
+
+    def test_monster_weather__Hail(self):
+        self.assertEqual("Hail", self.monster_1.fav_weather)
