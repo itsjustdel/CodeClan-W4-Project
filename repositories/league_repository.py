@@ -51,4 +51,3 @@ def update(league):
     values = [league.name, league.id]
     # send to db
     run_sql(sql, values)
-
