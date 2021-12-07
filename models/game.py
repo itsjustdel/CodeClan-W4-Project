@@ -8,13 +8,8 @@ class Game:
         self.away_team = away_team
         self.winning_team = winning_team                
 
-    def play(self, home_team_monsters,away_team_monsters):
-        # set the weather randomly from a list
-        weather = random.choice(['Blizzard', 'Hail', 'Heavy rain', 'Ice Storm', 'Lightning', 'Windy'])
-        # we need the monsters/players to play the game
-        # # grab from db
-        # home_team_monsters = monster_repository.monsters_from_team(self.home_team)
-        # away_team_monsters =  monster_repository.monsters_from_team(self.away_team)
+    def play(self, home_team_monsters,away_team_monsters,weather):
+        
         #work out power for each team
         home_team_power = team_power(weather, home_team_monsters)
         away_team_power = team_power(weather, away_team_monsters)

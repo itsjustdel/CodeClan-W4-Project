@@ -65,10 +65,14 @@ def monsters_from_team(team):
     return monsters
 
 def add_monsters(team):
-        # 3 monsters per team
-        for i in range(3):
-            name = random_name()
-            limbs = random.randrange(2,10)
-            fav_weather = random.choice(weathers)
-            monster = Monster(name, limbs, fav_weather, team)
-            save(monster)
+    monsters =[]
+    # 3 monsters per team
+    for i in range(3):
+        name = random_name()
+        limbs = random.randrange(2,10)
+        fav_weather = random.choice(weathers)
+        monster = Monster(name, limbs, fav_weather, team)
+        monsters.append(monster)
+        save(monster)
+
+    return monsters

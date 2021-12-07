@@ -44,7 +44,8 @@ class TestGame(unittest.TestCase):
         monsters_1 = [self.monster_1,self.monster_2,self.monster_3]
         monsters_2 = [self.monster_4,self.monster_5,self.monster_6]     
         #play game asigns a team to winning_team attribute on Game instance
-        self.game_1.play(monsters_1,monsters_2)
+        weather = "Hail"
+        self.game_1.play(monsters_1,monsters_2,weather)
 
         actual = self.game_1.winning_team
         expected = self.team_1
@@ -57,7 +58,7 @@ class TestGame(unittest.TestCase):
         monsters_2 = [self.monster_1,self.monster_2,self.monster_3]
         monsters_1 = [self.monster_4,self.monster_5,self.monster_6]     
         #play game asigns a team to winning_team attribute on Game instance
-        self.game_1.play(monsters_1,monsters_2)
+        self.game_1.play(monsters_1,monsters_2,"Hail")
 
         actual = self.game_1.winning_team
         expected = self.team_2
@@ -72,7 +73,7 @@ class TestGame(unittest.TestCase):
         monsters_1 = [self.monster_1,self.monster_2,self.monster_3]
         monsters_2 = [self.monster_4,self.monster_5,self.monster_6]     
         #play game asigns a team to winning_team attribute on Game instance
-        self.game_1.play(monsters_1,monsters_2)
+        self.game_1.play(monsters_1,monsters_2, "Hail")
 
         actual = self.game_1.winning_team
         expected = self.team_1

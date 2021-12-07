@@ -1,10 +1,12 @@
 import pdb
+import random
 
 # # import model classes to organise data
 from models.league import League
 # from models.monster import Monster
 from models.team import Team
 from models.game import Game
+from models.weather import weathers
 # import repositories to send sql to db
 import repositories.league_repository as league_repository
 import repositories.monster_repository as monster_repository
@@ -29,16 +31,17 @@ team_repository.save(team_1)
 team_repository.save(team_2)
 team_repository.save(team_3)
 
-monster_repository.add_monsters(team_1)
-monster_repository.add_monsters(team_2)
-monster_repository.add_monsters(team_3)
+monsters_1 = monster_repository.add_monsters(team_1)
+monsters_2 = monster_repository.add_monsters(team_2)
+monsters_3 =monster_repository.add_monsters(team_3)
 
 game_1 = Game(league, team_1, team_2)
 game_2 = Game(league, team_2, team_3)
 game_3 = Game(league, team_1, team_3)
-game_1.play()
-game_2.play()
-game_3.play()
+
+game_1.play(monsters_1, monsters_2, random.choice(weathers))
+game_2.play(monsters_2, monsters_3, random.choice(weathers))
+game_3.play(monsters_1, monsters_3, random.choice(weathers))
 
 game_repository.save(game_1)
 game_repository.save(game_2)

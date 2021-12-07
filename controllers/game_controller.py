@@ -1,5 +1,8 @@
 from flask import Flask, render_template, request, redirect, Blueprint
 from models.game import Game
+from models.weather import weathers
+
+import random
 import repositories.game_repository as game_repository
 import repositories.team_repository as team_repository
 import repositories.league_repository as league_repository
@@ -61,7 +64,10 @@ def new_game_results(league_id,home_team_id):
     home_team_monsters = monster_repository.monsters_from_team(home_team)
     away_team_monsters =  monster_repository.monsters_from_team(away_team)
 
-    game.play(home_team_monsters,away_team_monsters)
+    # set the weather randomly from weather list
+    weather = random.choice(weathers)
+
+    game.play(home_team_monsters,away_team_monsters,weather)
     # save to db
     game_repository.save(game)
     
