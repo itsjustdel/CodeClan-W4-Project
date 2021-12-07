@@ -6,20 +6,25 @@
 <h2> <a href="/monsters/{{monster.id}}">{{monster.name}}</a> </h2>
 
 
+<section class="table" id="monster_table">  
+  <article class="card">
+    <table>
+      <div class ="card_title">
+        <a href="/monsters/{{monster.id}}"> {{monster.name}}</a></div>
+        <tr>
+          <td>Limbs</td>
+          <td>{{monster.limbs}}</td>
+        </tr>   <tr>
+          <td>Favourite Weather</td>
+          <td>{{monster.fav_weather}}</td>
+        </tr>   
+      </div>
+    </table>   
+    
+  </article>
+  
+</section>
 
 
-<table class="table">
-  <tr>
-      <th>Limbs</th>    
-      <th>Favourite Weather</th>
-      <tr>
-          <td>
-              {{monster.limbs}}
-          </td>
-          <td>
-            {{monster.fav_weather}}
-        </td>
-      </tr>  
-  </table>
 
 {% endblock %}
