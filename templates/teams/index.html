@@ -4,11 +4,11 @@
 
 <table class="table">
   <tr>
-    <th>Teams</th>    
+    <th><a href="/teams">Teams</a></th>    
   </tr>
   {% for team in teams %}
   <tr>
-    <td><a href="/teams/{{team.id}}">{{ team.name }}</a> </td>     
+    <td class="table_body"><a href="/teams/{{team.id}}">{{ team.name }}</a> </td>     
   </tr>
   {% endfor %}
 </table>

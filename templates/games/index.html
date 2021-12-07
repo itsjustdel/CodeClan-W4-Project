@@ -5,16 +5,19 @@
 <table class="table">
   <tr>
     <th>Home Team</th>    
+    <th class="vs">vs</th>    
     <th>Away Team</th>    
   </tr>
   {% for game in games %}
   <tr>
     {% if game.home_team.name == game.winning_team.name %}
-    <td><a class="table_winner" href="/teams/{{game.home_team.id}}">{{ game.home_team.name }}</a></td>     
-    <td><a class ="table_loser" href="/teams/{{game.away_team.id}}">{{game.away_team.name}}</a></td>  
+    <td class="table_body"><a class="table_winner" href="/teams/{{game.home_team.id}}">{{ game.home_team.name }}</a></td>  
+    <td class="vs">Beat</td>
+    <td class="table_body"><a class ="table_loser" href="/teams/{{game.away_team.id}}">{{game.away_team.name}}</a></td>  
     {% else %}
-    <td><a class="table_loser" href="/teams/{{game.home_team.id}}">{{ game.home_team.name }}</a></td>     
-    <td><a class ="table_winner" href="/teams/{{game.away_team.id}}">{{game.away_team.name}}</a></td>
+    <td class="table_body"><a class="table_loser" href="/teams/{{game.home_team.id}}">{{ game.home_team.name }}</a></td>         
+    <td class="vs">Beat</td>
+    <td class="table_body"><a class ="table_winner" href="/teams/{{game.away_team.id}}">{{game.away_team.name}}</a></td>
     {% endif %}
     
   </tr>

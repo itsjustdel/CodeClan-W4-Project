@@ -24,7 +24,8 @@ def show(id):
 
 @leagues_blueprint.route("/leagues/new")
 def new_league_form():
-    return render_template("/leagues/new.html")
+    leagues = league_repository.select_all()
+    return render_template("/leagues/new.html", leagues=leagues)
 
 @leagues_blueprint.route("/leagues/new", methods=['POST'])
 def new_league():        

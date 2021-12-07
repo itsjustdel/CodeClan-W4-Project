@@ -1,5 +1,12 @@
+html
+{
+    background:	#d1f1fd;
+    font-family: 'Sigmar One', cursive;
+}
+
+ 
  a{
-   color:indianred;
+   /* color:indianred; */
    text-decoration: none;
  }
  h2{
