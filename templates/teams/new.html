@@ -1,7 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Add New Team</h1>
+<h2><a href="/leagues/{{league.id}}">{{league.name}}</a></h2>
+    <table class="table">
+        <tr>
+            <th>Team</th>    
+            <th>Wins</th>    
+          </tr>
+        {% for team_and_win in teams_and_wins %}
+            <tr>
+                <td class = "table_body" ><a href="/teams/{{team_and_win[0].id}}"> {{team_and_win[0].name}} </a></td>
+                <td class = "table_body">{{team_and_win[1]}}</td>
+            </tr>
+        {% endfor %}    
+        <tr><td class="table_empty"><br/></td></tr>
+        
+        <tfoot>
+          <tr>
+            <td class ="table_foot"><a href="/leagues/{{league.id}}/new">Add New Team</a></td>
+          </tr>
+        </tfoot>
+      </table>
 
 <form action="/leagues/{{league.id}}/teams/new" method="post">    
     <label for="team_name">Team name:</label>

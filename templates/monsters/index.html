@@ -1,16 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>All Monsters</h1>
 <table class="table">
   <tr>
-      <th>Name</th>    
+      <th><a href="/monsters">Monsters</a></th>    
     </tr>
   {% for monster in monsters %}
       <tr>
-          <td>
-              <a href="/monsters/{{monster.id}}"> {{monster.name}} </a>
-          </td>
+          <td class="table_body"><a href="/monsters/{{monster.id}}"> {{monster.name}} </a></td>
       </tr>
   {% endfor %}    
   </table>

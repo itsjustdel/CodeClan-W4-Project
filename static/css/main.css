@@ -10,8 +10,12 @@ html
    text-decoration: none;
  }
  h2{
+   text-align: center;
+ }
+ h2 a{
   text-decoration: none;
    text-align: center;
+   color: indianred;
  }
  .nav_bar{
     

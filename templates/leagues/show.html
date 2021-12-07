@@ -9,15 +9,18 @@
           </tr>
         {% for team_and_win in teams_and_wins %}
             <tr>
-                <td>
-                    <a href="/teams/{{team_and_win[0].id}}"> {{team_and_win[0].name}} </a>
-                </td>
-                <td>
-                    {{team_and_win[1]}}
-                </td>
+                <td class = "table_body" ><a href="/teams/{{team_and_win[0].id}}"> {{team_and_win[0].name}} </a></td>
+                <td class = "table_body">{{team_and_win[1]}}</td>
             </tr>
         {% endfor %}    
-        </table>
+        <tr><td class="table_empty"><br/></td></tr>
+        
+        <tfoot>
+          <tr>
+            <td class ="table_foot"><a href="/leagues/{{league.id}}/new">Add New Team</a></td>
+          </tr>
+        </tfoot>
+      </table>
 
     <a href="/leagues/{{league.id}}/edit">Edit League</a>
     <form action="/leagues/{{league.id}}/delete" method="POST">

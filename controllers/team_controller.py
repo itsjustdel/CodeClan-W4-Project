@@ -25,14 +25,21 @@ def show(id):
 
 
 # NEW
-@teams_blueprint.route("/<league_id>/teams/new")
+@teams_blueprint.route("/leagues/<league_id>/new")
 def new_team_form(league_id):
     league = league_repository.select(league_id)
-    # got to team
-    return render_template("/teams/new.html", league=league)
+    teams = team_repository.teams(league)
+    games = game_repository.games_for_league(league)
+    # get a list of team names sorted by wins, including wins
+    teams_and_wins = sort_teams_by_wins(teams, games)    
 
-@teams_blueprint.route("/leagues/<league_id>/teams/new", methods=['POST'])
-def new_team(league_id):        
+    ####      
+    # got to team
+    return render_template("/teams/new.html", league=league, teams_and_wins=teams_and_wins)
+
+@teams_blueprint.route("/leagues/<league_id>/new", methods=['POST'])
+def new_team(league_id):  
+    
     team_name = request.form['team_name']
     league = league_repository.select(league_id)
     team = Team(team_name,league)
