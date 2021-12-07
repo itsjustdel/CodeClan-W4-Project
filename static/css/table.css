@@ -164,9 +164,9 @@ textarea:focus, input:focus{
   padding: 20px;
   text-align: center;
   border-width: 5px;
-  border-top-left-radius: px 100px;
-  border-top-right-radius: 45px 950px;
-  border-bottom-left-radius: 50px 120px;
+  border-top-left-radius: 50px 400px;
+  border-top-right-radius: 45px 50px;
+  border-bottom-left-radius: 50px 10px;
   border-bottom-right-radius: 56px 24px;
 
 }

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
-
 {% block content %}
+<h2> <a href="/leagues/{{league.id}}">{{league.name}}</a></h2>
+
 <div class="centred_container">
     <div class="results">
         <h2 id="outcome_1">   {{game.home_team.name}} vs {{game.away_team.name}}</h2>

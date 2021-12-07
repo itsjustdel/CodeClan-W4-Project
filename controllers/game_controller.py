@@ -3,7 +3,7 @@ from models.game import Game
 import repositories.game_repository as game_repository
 import repositories.team_repository as team_repository
 import repositories.league_repository as league_repository
-
+import repositories.monster_repository as monster_repository
 games_blueprint = Blueprint("games",__name__)
 
 @games_blueprint.route("/games/")
@@ -44,8 +44,6 @@ def new_game_select_away_team(league_id):
     teams = team_repository.teams(league)  
     # retreive info from form
     home_team = team_repository.select(request.form['team_id'])
-    
-    
     return render_template("games/new_game_select_away_team.html", teams=teams, league=league, home_team=home_team)
 
 
@@ -59,23 +57,12 @@ def new_game_results(league_id,home_team_id):
     away_team = team_repository.select(request.form['team_id'])    
     # create a Game object
     game = Game(league,home_team,away_team)   
-    game.play()
-    # save to db
-    game_repository.save(game)
-    
-    return render_template("games/result.html", game=game)
 
-@games_blueprint.route("/leagues/<league_id>/games/result", methods=['POST'])
-def play_game(league_id):
-    # get league
-    league = league_repository.select(league_id)    
-    # retreive info from form
-    home_team = team_repository.select(request.form['home_team_id'])
-    away_team = team_repository.select(request.form['away_team_id'])    
-    # create a Game object
-    game = Game(league,home_team,away_team)   
-    game.play()
+    home_team_monsters = monster_repository.monsters_from_team(home_team)
+    away_team_monsters =  monster_repository.monsters_from_team(away_team)
+
+    game.play(home_team_monsters,away_team_monsters)
     # save to db
     game_repository.save(game)
     
-    return render_template("games/result.html", game=game)
+    return render_template("games/result.html", game=game, league=league)

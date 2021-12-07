@@ -6,11 +6,7 @@
   </tr>
 </table>
 <table class="table">
-  <tr>
-    <th>Home Team</th>    
-    <th class="vs">vs</th>    
-    <th>Away Team</th>    
-  </tr>
+  
   {% for game in games %}
   <tr>
     {% if game.home_team.name == game.winning_team.name %}
