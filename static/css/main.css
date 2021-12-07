@@ -12,6 +12,9 @@ html
  h2{
    text-align: center;
  }
+ h3{
+   text-align: center;
+ }
  h2 a{
   text-decoration: none;
    text-align: center;
@@ -75,4 +78,34 @@ html
     0% { opacity:0; }
     66% { opacity:0; }
     100% { opacity:1; }
+}
+
+.edit_container{
+  display: flex;
+  justify-content: center;
+}
+
+.edit_list
+{  
+  list-style: none;
+  padding: 10px;
+}
+.edit_list li
+{  
+  padding: 10px;
+  text-align: center;
+}
+
+.edit_list li:first-child
+{
+  background-color: seashell;
+}
+
+#edit_accept
+{
+  background-color: seagreen;
+}
+#edit_delete
+{
+  background-color: indianred;
 }

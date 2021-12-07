@@ -30,3 +30,22 @@
 #monster_table{
     display: flex;
 }
+
+.card_title{
+    width: 95%;
+    margin: auto;    
+    justify-content: center;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #04AA6D;
+    color: white;
+  }  
+
+  .card_title a{
+    color: indianred;
+  }
+  .card tbody tr td {
+      font-size: small;
+      padding: 20px;
+  }

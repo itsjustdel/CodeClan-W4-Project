@@ -1,12 +1,29 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Add New League</h1>
 
-<form action="/leagues/{{league.id}}/edit" method="post">    
-    <label for="league_name">Enter league name:</label>
-    <input type="text" id="league_name" name="league_name" value="{{league.name}}">
-    <input type="submit" value="Make Changes!">
-</form>
+<h2> <a href="/leagues/{{league.id}}">{{league.name}}</a> </h2>
+<div class="edit_container">
+    <ul class="edit_list">        
+        <li>Edit Name</li>
+        <li>
+            <form action="/leagues/{{league.id}}/edit" method="post">                
+                <input type="text" id="league_name" name="league_name" autocomplete="off" autofocus="autofocus" value="{{league.name}}" >
+                
+        </li>
+        <li id="edit_accept">
+            <input type="submit" value="Accept Changes">
+        </form>
+        </li>
+        <li></li>
+        <li id ="edit_delete">
+            <form action="/leagues/{{league.id}}/delete" method="POST">
+                <input type="submit" value="Delete League"/>
+            </form>
+        </li>
+    </ul>
+</div>
+
+
 
 {% endblock %}
