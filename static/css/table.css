@@ -45,9 +45,9 @@
 .table th{
   
   font-size: 3em;
-  padding: .5em;
+  /* padding: .5em; */
   padding-top: 1em;
-  padding-bottom: 1em;  
+  padding-bottom: .25em;  
   text-align: center;
   color: #04AA6D;
   border: 5px solid var(--mid_green);
@@ -56,7 +56,8 @@
   border-top-right-radius: 75px 200px;
   border-bottom-left-radius: 56px 87px;
   border-bottom-right-radius: 108px 65px;
-  outline: 5px solid var(--mid_green)
+  outline: 5px solid green;
+  background-color: #f2f2f2;;
 }
 
 .table_body
@@ -66,16 +67,18 @@
   padding: 10px;
   text-align: center;
   border-width: 5px;
-  border: none;
-}
+  border: solid var(--mid_green) 1px;
+  background-color: #f2f2f2;
 
+}
+/* 
 .table tr:nth-child(even){
 
 
 } 
 .table tr:nth-child(odd){
   background-color: #f2f2f2;
-} 
+}  */
 
 footer a:hover {
    background-color:coral;
@@ -87,7 +90,7 @@ tfoot tr td:hover{
 
 .table_foot
 {
-  border: 5px solid var(--mid_green);
+  border: 5px solid green;
   padding: 20px;
   text-align: center;
   border-width: 5px;
@@ -155,9 +158,9 @@ textarea:focus, input:focus
 
 .table_winner
 {
-   background-color:var(--mid_green); 
+  background-color:var(--mid_green); 
   font-size: 1em;    
-  border: solid 5px darkgreen;
+  border: solid 5px green;
   padding: 20px;
   text-align: center;
 }

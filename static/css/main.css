@@ -21,6 +21,8 @@ h2 a{
 text-decoration: none;
   text-align: center;
   color: indianred;
+
+  text-shadow:black 0px 0px 1px;
 }
 .nav_bar{
   
@@ -73,10 +75,26 @@ footer a{
 }
 .enter
 {
+  display: flex;
   text-decoration: none;
   text-align: center;    
-  justify-content: center;   ;
+  justify-content: center;
+
+  
 }
+
+.enter a
+{
+  text-shadow:black 0px 0px 1px;
+  transition: text-shadow .5s;
+  transition: font-size .5s;
+}
+
+.enter a:hover {
+  text-shadow:coral 0px 0px 5px;
+  font-size: 120%;
+}
+
 .enter a{
   color: #04AA6D;
 }
@@ -87,6 +105,19 @@ footer a{
     justify-content: center; 
     color: orange;
     text-shadow:black 0px 0px 5px;
+    animation: pulse 5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    color: orange;
+  }
+  50% {
+    color: #FF4136;
+  }
+  100% {
+    color: orange;
+  }
 }
 
 .edit_container{
