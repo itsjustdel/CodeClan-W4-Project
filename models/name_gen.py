@@ -24,4 +24,6 @@ def random_name():
         else:
             word += random.choice(vowels)
 
+    word = word.capitalize()
+
     return word

@@ -64,7 +64,3 @@ game_6.play(monsters[6], monsters[7], random.choice(weathers))
 game_repository.save(game_4)
 game_repository.save(game_5)
 game_repository.save(game_6)
-
-# games = game_repository.games_for_team(team_1)
-
-# pdb.set_trace()
