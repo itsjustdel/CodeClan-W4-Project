@@ -165,6 +165,12 @@ footer a{
   text-shadow: #000 0px 0px 2px;
 }
 
+#outcome_footer{
+  opacity: 0;
+  animation: 1s ease 5s normal forwards fadein ;
+  
+}
+
 @keyframes fadein{
   0% { opacity:0; }
   66% { opacity:0; }

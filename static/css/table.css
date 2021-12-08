@@ -80,6 +80,9 @@
 footer a:hover {
    background-color:coral;
 }
+tfoot tr td:hover{
+  background-color:coral;
+}
 
 
 .table_foot
