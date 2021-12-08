@@ -1,4 +1,3 @@
-<a href="https://postgresql.org"><img src="https://img.shields.io/badge/Powered%20by-PostgreSQL-blue.svg"/></a>
 <a href="https://github.com/pallets/flask"><img src="https://img.shields.io/badge/Powered%20by-Flask-yellow.svg"/></a>
 <a href="https://github.com/psycopg/psycopg"><img src="https://img.shields.io/badge/Powered%20by-Psycopg2-green.svg"/></a>
 
